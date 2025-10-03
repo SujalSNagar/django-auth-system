@@ -26,3 +26,14 @@ This project demonstrates basic user authentication, session handling, and form 
    ```bash
    git clone https://github.com/SujalSNagar/django-auth-system.git
    cd django-auth-system
+
+
+
+   
+## 📸 Screenshots
+
+### Signup Page
+![Signup Page](screenshots/signup.png)
+
+### Login Page
+![Login Page](screenshots/login.png)
