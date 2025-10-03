@@ -12,44 +12,36 @@
     <div class="container mt-5">
 
         
-        <form class="col-5 mx-auto shadow-lg card p-3 shadow-lg" method="post">
+        <form class="col-5 mx-auto shadow-lg card p-5 shadow-lg" method="post">
 
             {% if messages %}
-            {{message.tags}}
-            <div class="alert alert-primary" role="alert">
+                {{message.tags}}
+            
                 {% for message in messages %}
   
-                {{ message }}
+                <p class="text-danger">{{ message }} !</p>
                 {% endfor %}
-              </div>
             
             {% endif %}
             {% csrf_token %}
             <h2>Sign up</h2>
-            <!-- <div class="mb-3">
-                <label for="first_name" class="form-label">first_name</label>
-                <input type="text" name="first_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="last_name" class="form-label">Last_name</label>
-                <input type="text" name="last_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div> -->
+            
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" name="username"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="username"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
             </div>
             <p>Already have an account <a href="/login/">Login</a></p>
         <button type="submit" class="btn btn-primary">Signup</button>
     </form>
 
-    {% comment %} <h3>{{users.0.username}}</h3> {% endcomment %}
-    {% for user in users %}
-        <h4>{{forloop.counter}} - {{user.username}}</h4>
-    {% endfor %}
 </div>
 
 

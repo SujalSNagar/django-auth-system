@@ -14,6 +14,7 @@ def sign_up(request):
     
     if request.method == "POST":
         username = request.POST.get("username")
+        email = request.POST.get("email")
         password = request.POST.get("password")
 
         if User.objects.filter(username = username).exists():
@@ -21,7 +22,8 @@ def sign_up(request):
             return redirect("/signup/")
 
         user = User.objects.create(
-            username = username
+            username = username,
+            email = email
             
         )
 
