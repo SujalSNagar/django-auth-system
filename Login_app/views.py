@@ -18,7 +18,7 @@ def sign_up(request):
         password = request.POST.get("password")
 
         if User.objects.filter(username = username).exists():
-            messages.info(request, "username already exists")
+            messages.error(request, "username already exists")
             return redirect("/signup/")
 
         user = User.objects.create(
@@ -41,7 +41,7 @@ def login_page(request):
         password = request.POST.get("password")
 
         if not User.objects.filter(username = username).exists():
-            messages.info(request, "Invalid username")
+            messages.error(request, "Invalid username")
             return redirect("/login/")
         
 
@@ -49,7 +49,7 @@ def login_page(request):
         
         
         if user is None:
-            messages.info(request, "Invalid Password")
+            messages.error(request, "Invalid Password")
             return redirect("/login/")
         
 

@@ -12,14 +12,14 @@
     <div class="container mt-5">
         
         <form class="col-5 mx-auto shadow-lg card p-5 shadow-lg" method="post">
-            {% if messages %}
-            {{ message.tags }}
-            
+            {% if messages %}  
               {% for message in messages %}
-
-              <p class="text-danger">{{ message }} !</p>
+              {% if "error" in message.tags %}
+              <p class="text-danger">{{message.tags}}: {{ message }} !</p>
+              {% elif "success" in message.tags %}
+              <p class="text-success">{{message.tags}}: {{ message }} </p>
+              {% endif %}
               {% endfor %}
-            
 
             {% endif %}
 
